@@ -1,0 +1,152 @@
+<ns0:test-suite xmlns:ns0="urn:model.allure.qatools.yandex.ru" start="1546137157390" stop="1546137211734">
+  <name>test_login</name>
+  <labels/>
+  <test-cases>
+    <test-case start="1546137157390" status="passed" stop="1546137194300">
+      <name>TestLogin.test_login[13488834010-159357li-1-None-None]</name>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="15632-MainThread"/>
+        <label name="host" value="DESKTOP-VIMF21N"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1546137172768" status="passed" stop="1546137174806">
+          <name>点击我的</name>
+          <title>点击我的</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137174806" status="passed" stop="1546137177974">
+          <name>点击已有账号</name>
+          <title>点击已有账号</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137177974" status="passed" stop="1546137185812">
+          <name>点击登录逻辑</name>
+          <title>点击登录逻辑</title>
+          <attachments>
+            <attachment source="41b874fc-294e-41e2-b5c5-cd9399e91eeb-attachment.txt" title="登录" type="text/plain"/>
+            <attachment source="91bdfd87-0a1b-47b6-bbcd-9665f09be38a-attachment.txt" title="登录" type="text/plain"/>
+            <attachment source="6709bb59-ef0a-478e-aacd-9a7c9ae308ce-attachment.txt" title="登录" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1546137185812" status="passed" stop="1546137189025">
+          <name>判断是否登录成功</name>
+          <title>判断是否登录成功</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137189025" status="passed" stop="1546137190114">
+          <name>进入设置个人中心</name>
+          <title>进入设置个人中心</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137190114" status="passed" stop="1546137194300">
+          <name>退出账号</name>
+          <title>退出账号</title>
+          <attachments>
+            <attachment source="38dd902d-b9cb-46d7-a355-fc05a39b34b4-attachment.txt" title="退出账号" type="text/plain"/>
+            <attachment source="0c498d23-247e-4b7a-ad53-dbadbd735cb9-attachment.txt" title="退出账号" type="text/plain"/>
+            <attachment source="c5028e62-6616-4e60-89bf-0cec1b4aa7a2-attachment.txt" title="退出账号" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+    <test-case start="1546137194323" status="failed" stop="1546137211734">
+      <name>TestLogin.test_login[11111\u4e2d\u56fd-9998888-0-\u4e0d\u5b58\u5728-\u6b64\u7528\u6237\u4e0d\u5b58\u5728111]</name>
+      <failure>
+        <message>AssertionError: None
+assert '此用户不存在' == '此用户不存在111'
+  - 此用户不存在
+  + 此用户不存在111
+  ?       +++</message>
+        <stack-trace>self = &lt;test_login.TestLogin object at 0x000001BA3EC92D68&gt;, username = '11111中国', password = '9998888', tag = 0, get_toast_msg = '不存在', except_msg = '此用户不存在111'
+
+    @pytest.mark.parametrize("username,password,tag,get_toast_msg,except_msg", get_data())
+    def test_login(self,username,password,tag,get_toast_msg,except_msg):
+        # 1.点击我的
+        self.navigation_page.get_home_page_obj().click_my_button()
+        # 2.点击已有账号
+        self.navigation_page.get_sign_in_page_obj().click_exist_accout()
+        # 3.输入用户名密码 点击登录
+        self.navigation_page.get_login_page_obj().login_in(username, password)
+        if tag == 1:
+            try:
+                login_state = self.navigation_page.get_person_center_page_obj().is_login_sucess()
+            # 4.点击个人中心设置按钮
+                self.navigation_page.get_person_center_page_obj().click_person_center_setting()
+                # 5.点击退出
+                self.navigation_page.get_setting_page_obj().logout_account()
+                assert login_state, self.navigation_page.get_person_center_page_obj().get_screen()
+            except:
+                # 6.截图 在哪一个页面出现的问题
+                self.navigation_page.get_person_center_page_obj().get_screen()
+                self.navigation_page.get_login_page_obj().close_login_page()
+        else:
+            try:
+                toast_message = self.navigation_page.get_person_center_page_obj().get_toast_message(get_toast_msg)
+&gt;               assert toast_message == except_msg, self.navigation_page.get_person_center_page_obj().get_screen()
+E               AssertionError: None
+E               assert '此用户不存在' == '此用户不存在111'
+E                 - 此用户不存在
+E                 + 此用户不存在111
+E                 ?       +++
+
+script\test_login.py:59: AssertionError</stack-trace>
+      </failure>
+      <attachments/>
+      <labels>
+        <label name="severity" value="normal"/>
+        <label name="thread" value="15632-MainThread"/>
+        <label name="host" value="DESKTOP-VIMF21N"/>
+        <label name="framework" value="pytest"/>
+        <label name="language" value="cpython3"/>
+      </labels>
+      <steps>
+        <step start="1546137194326" status="passed" stop="1546137195492">
+          <name>点击我的</name>
+          <title>点击我的</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137195492" status="passed" stop="1546137197466">
+          <name>点击已有账号</name>
+          <title>点击已有账号</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137197466" status="passed" stop="1546137205324">
+          <name>点击登录逻辑</name>
+          <title>点击登录逻辑</title>
+          <attachments>
+            <attachment source="22fc0f24-35aa-4f3c-9bb5-f66a8526c836-attachment.txt" title="登录" type="text/plain"/>
+            <attachment source="1ad28b34-5780-491e-8db0-cc825f3a788e-attachment.txt" title="登录" type="text/plain"/>
+            <attachment source="21768b8d-fc21-468d-b4de-56533d7c38f4-attachment.txt" title="登录" type="text/plain"/>
+          </attachments>
+          <steps/>
+        </step>
+        <step start="1546137205324" status="passed" stop="1546137206499">
+          <name>获取吐司</name>
+          <title>获取吐司</title>
+          <attachments/>
+          <steps/>
+        </step>
+        <step start="1546137206500" status="passed" stop="1546137210569">
+          <name>截图信息</name>
+          <title>截图信息</title>
+          <attachments>
+            <attachment source="c65245bb-cff1-4792-a126-7ffd76a15bab-attachment.png" title="截图名字" type="image/png"/>
+          </attachments>
+          <steps/>
+        </step>
+      </steps>
+    </test-case>
+  </test-cases>
+</ns0:test-suite>
